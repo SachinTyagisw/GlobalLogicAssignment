@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="GlobalLogic.UI.View.PostsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:resource="clr-namespace:GlobalLogic.Resources"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <CheckBox VerticalAlignment="Center" IsChecked="{Binding IsAutoRefresh,Mode=TwoWay}" VerticalContentAlignment="Center">
+                <TextBlock Text="Auto Refresh" VerticalAlignment="Center" />
+            </CheckBox>
+            
+            <Button Content="Get Posts" Height="25" Command="{Binding GetPostsCommand}" Margin="30,0,0,0"></Button>
+        </StackPanel>
+
+        <ListView HorizontalContentAlignment="Stretch" Grid.Row="2" ItemsSource="{Binding Posts}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border CornerRadius="20" HorizontalAlignment="Stretch" Margin="10" BorderBrush="Gray" BorderThickness="2">
+                        <Grid HorizontalAlignment="Stretch" Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock x:Name="txtPostID" Style="{StaticResource styleTextBlockHeader}" Text="ID:" Grid.Row="0"></TextBlock>
+                            <TextBlock x:Name="txtPostIDValue" Grid.Column="1" Text="{Binding ID}"></TextBlock>
+
+                            <TextBlock x:Name="txtPostTitle" Style="{StaticResource styleTextBlockHeader}" Text="Title:" Grid.Row="1"></TextBlock>
+                            <TextBlock x:Name="txtPostTitleValue" Grid.Row="1" Grid.Column="1" Text="{Binding Title}"></TextBlock>
+
+                            <TextBlock x:Name="txtPostBody" Style="{StaticResource styleTextBlockHeader}" Text="Body:" Grid.Row="2"></TextBlock>
+                            <TextBlock x:Name="txtPostBodyValue" Grid.Row="2" Grid.Column="1" Text="{Binding Body}"></TextBlock>
+
+                            <TextBlock x:Name="txtPostUser" Style="{StaticResource styleTextBlockHeader}" Text="User:" Grid.Row="3"></TextBlock>
+                            <TextBlock x:Name="txtPostUserValue" Grid.Row="3" Grid.Column="1">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} | {1} | {2}">
+                                        <Binding Path="User.UserName"></Binding>
+                                        <Binding Path="User.Email"></Binding>
+                                        <Binding Path="User.Phone"></Binding>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+
+                            <Button HorizontalAlignment="Right" Margin="0,10,10,0" Style="{StaticResource HyperlinkLikeButton}" Grid.Row="4" Grid.ColumnSpan="2"
+                                                Command="{Binding  DataContext.PostDetailCommand,
+                                              RelativeSource={RelativeSource FindAncestor,
+                                                                             AncestorType={x:Type ListView}}}"
+                            CommandParameter="{Binding}"
+                            Content="View Details" />
+                            
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <resource:WaitWindow Visibility="{Binding WaitWindowVisibility}"  Grid.Row="0" Grid.RowSpan="4"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="GlobalLogic.Dialog.View.PostDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:utilities="clr-namespace:GlobalLogic.Utilities"
+             xmlns:factory="clr-namespace:GlobalLogic.BLL.Factory.WriterFactory"
+             Height="300"
+             Width="500"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <ComboBox VerticalContentAlignment="Center" Height="30" SelectedItem="{Binding SelectedWriter,Mode=TwoWay}" Width="200" ItemsSource="{Binding Source={utilities:EnumBindingSourceExtension {x:Type factory:WriterType}}}"  Text="File Writer"></ComboBox>
+            <Button Margin="10,0,0,0" x:Name="btnGenerate" Command="{Binding GeneratePostDataCommand}" Content="Generate"></Button>
+            <Button Margin="10,0,0,0" x:Name="btnCopy" Command="{Binding CopyPostDataCommand}" Content="Copy"></Button>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="2">
+            <GroupBox VerticalContentAlignment="Stretch" Margin="5" Header="Details">
+                <TextBox VerticalAlignment="Stretch" VerticalContentAlignment="Top"   Text="{Binding PostContent}" IsReadOnly="True" TextWrapping="WrapWithOverflow"></TextBox>
+            </GroupBox>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
