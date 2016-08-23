@@ -84,6 +84,9 @@
     <Compile Include="UI\View\PostsView.xaml.cs">
       <DependentUpon>PostsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\View\ScopeofImprovement.xaml.cs">
+      <DependentUpon>ScopeofImprovement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\CustomComparer.cs" />
     <Compile Include="Utilities\EnumBindingSourceExtension.cs" />
     <Compile Include="Utilities\InspectObject.cs" />
@@ -131,6 +134,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\View\ScopeofImprovement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -146,6 +153,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Resources\Images\Graphical-Representation.png" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -17,6 +17,10 @@
             <TabItem Style="{StaticResource tabItemStyle}" Header="Explanation">
                 <usrctrl:ExplanationView HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10"></usrctrl:ExplanationView>
             </TabItem>
+
+            <TabItem Style="{StaticResource tabItemStyle}" Header="Improvement's Scope">
+                <usrctrl:ScopeofImprovement HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="10"></usrctrl:ScopeofImprovement>
+            </TabItem>
         </TabControl>
         
         <StatusBar Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">

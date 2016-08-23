@@ -6,8 +6,77 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <RichTextBox IsEnabled="False" Name="rchExplanation" HorizontalAlignment="Stretch"
-             VerticalAlignment="Stretch">
+        <RichTextBox IsReadOnly="True" FontSize="12" FontWeight="Light"  Name="rchExplanation" HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <FlowDocument>
+                <Paragraph>
+                    <Italic>
+                        Overview on few of the folders used in application.
+                    </Italic>
+                </Paragraph>
+
+
+                <Paragraph>
+                    <Bold>
+                        <Underline>
+                            Business Layer
+                        </Underline>
+                    </Bold>
+                    <LineBreak></LineBreak>
+                    <LineBreak></LineBreak>
+
+                    1. Controllers: These code files contains the actual business logic and interact with utilities, domain objects and viewmodel.
+                    <LineBreak></LineBreak>
+                    2. Factory: WriterFactory creates an writer object of "JSON", "Plain" or "HTML" which can convert the object into defined format. .
+                    <LineBreak></LineBreak>
+                    3. Model: Domain objects of the application.
+                </Paragraph>
+
+                <Paragraph>
+                    <Bold>
+                        <Underline>
+                            Helper
+                        </Underline>
+                    </Bold>
+                    <LineBreak></LineBreak>
+                    <LineBreak></LineBreak>
+
+                    1. This folder shall contain all the supporting files to implement MVVM pattern and logging in application.
+                    <LineBreak></LineBreak>
+                </Paragraph>
+
+
+                <Paragraph>
+                    <Bold>
+                        <Underline>
+                            Utilities
+                        </Underline>
+                    </Bold>
+                    <LineBreak></LineBreak>
+                    <LineBreak></LineBreak>
+                    1. CustomComparer: CustomCoparer shall sort the collection of numeric, alphanumeric and string values.
+                    <LineBreak></LineBreak>
+                    2. EnumBindingSourceExtension: Converting Enum values as an DataSource for UI container.
+                    <LineBreak></LineBreak>
+                    3. InspectObject: Read the complete object and prepare a collection of all the properties and their values.
+                    <LineBreak></LineBreak>
+                    3. JSONToObjectCollection: It shall convert the jsoninput into collection of object. It takes byte array as an input and the type of object in which json needs to be converted. 
+                    <LineBreak></LineBreak>
+                </Paragraph>
+
+                <Paragraph>
+                    <Bold>
+                        <Underline>
+                            Graphical representation.
+                        </Underline>
+                    </Bold>
+                    <LineBreak></LineBreak>
+                </Paragraph>
+
+                <BlockUIContainer>
+                    <Image Height="300" Source="../../Resources/Images/Graphical-Representation.png"></Image>
+                </BlockUIContainer>
+            </FlowDocument>
         </RichTextBox>
     </Grid>
 </UserControl>

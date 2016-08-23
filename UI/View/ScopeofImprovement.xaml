@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="GlobalLogic.UI.View.ScopeofImprovement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <RichTextBox IsReadOnly="True" FontSize="12" FontWeight="Light"  Name="rchExplanation" HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <FlowDocument>
+                <Paragraph>
+                    <Italic>
+                        <Bold>
+                            Scope of improvement are as follows:-
+                        </Bold>
+                    </Italic>
+                </Paragraph>
+
+                <Paragraph>
+                    1. Unit test cases for maximum code coverage.
+                    <LineBreak></LineBreak>
+                    <LineBreak></LineBreak>
+                    2. Harcoded messages/labels needs to be moved in resource file.
+                    <LineBreak></LineBreak>
+                    <LineBreak></LineBreak>
+                    3. Below mentioned folders needs to be created as separate project so that it can be reuse in the form of dll.
+                    <LineBreak></LineBreak>
+                    <Span></Span>
+                    <Span></Span>
+                    a. Utilities
+                    <LineBreak></LineBreak>
+                    <Span></Span>
+                    <Span></Span>
+                    b. Controller
+                    <LineBreak></LineBreak>
+                    <Span></Span>
+                    <Span></Span>
+                    c. Model
+                    <LineBreak></LineBreak>
+                    <LineBreak></LineBreak>
+                    4. Styling to make the UI jazzy.
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+    </Grid>
+</UserControl>
