@@ -1,6 +1,7 @@
 ﻿using GlobalLogic.Helper;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace GlobalLogic.Utilities
 {
@@ -62,9 +63,14 @@ namespace GlobalLogic.Utilities
         }
 
     }
+
+    [DataContract]
     public class PropertyDetail
     {
+        [DataMember]
         public string Name { get; set; }
+        
+        [DataMember]
         public string Value { get; set; }
     }
 }

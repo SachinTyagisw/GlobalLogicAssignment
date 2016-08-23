@@ -6,7 +6,7 @@ using System.Text;
 
 namespace GlobalLogic.BLL.Factory.WriterFactory
 {
-    class JSONWriter : IFileWriter
+    public class JSONWriter : IFileWriter
     {
         ILogger logger = new LogService(typeof(JSONWriter));
         public string Generate<T>(T obj)

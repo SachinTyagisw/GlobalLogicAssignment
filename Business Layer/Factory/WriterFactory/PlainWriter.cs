@@ -5,9 +5,9 @@ using System.Text;
 
 namespace GlobalLogic.BLL.Factory.WriterFactory
 {
-    class PlainWriter : IFileWriter
+    public class PlainWriter : IFileWriter
     {
-        ILogger logger = new LogService(typeof(JSONWriter));
+        ILogger logger = new LogService(typeof(PlainWriter));
         public string Generate<T>(T obj)
         {
             try

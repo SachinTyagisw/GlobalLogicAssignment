@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace GlobalLogic.BLL.Model
 {
     [DataContract]
-    class Address : NotifyPropertyChanged
+    public class Address : NotifyPropertyChanged
     {
         #region "- Constructors -"
 
