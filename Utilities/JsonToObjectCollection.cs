@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Runtime.Serialization.Json;
+using System.Text;
 
 namespace GlobalLogic.Utilities
 {
@@ -16,29 +17,21 @@ namespace GlobalLogic.Utilities
         /// <typeparam name="T"></typeparam>
         /// <param name="uri"></param>
         /// <returns></returns>
-        public static List<T> getData<T>(string uri)
+        public static List<T> getData<T>(Byte[] jcontent)
         {
             var jsonObjects = new List<T>();
             try
             {
-                var webclient = new WebClient();
-                var content = webclient.DownloadData(uri);
-
                 var serializer = new DataContractJsonSerializer(typeof(List<T>));
-                using (var ms = new MemoryStream(content))
+                using (var ms = new MemoryStream(jcontent))
                 {
                     jsonObjects = (List<T>)serializer.ReadObject(ms);
                 }
                 return jsonObjects;
             }
-            catch (WebException ex)
-            {
-                logger.Error(String.Format("Error in connecting with website. Exception:{0} StackTrace:{1}", ex.Message, ex.StackTrace));
-                throw;
-            }
             catch (Exception ex)
             {
-                logger.Error(String.Format("Error in fetching the Post List. Exception:{0} StackTrace:{1}", ex.Message, ex.StackTrace));
+                logger.Error(String.Format("Error in converting json to Post List. Exception:{0} StackTrace:{1}", ex.Message, ex.StackTrace));
                 throw;
             }
         }
