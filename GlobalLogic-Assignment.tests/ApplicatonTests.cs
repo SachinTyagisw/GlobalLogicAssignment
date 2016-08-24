@@ -17,6 +17,7 @@ namespace GlobalLogic_Assignment.tests
         [TestMethod]
         public void ComparerTest()
         {
+            
             //Unit testing for numeric format
             var inputCollection = new ObservableCollection<string> { "1", "4", "10", "2", "5" };
             var expectedCollection = new ObservableCollection<string> { "1", "2", "4", "5", "10" };
@@ -150,6 +151,8 @@ namespace GlobalLogic_Assignment.tests
         [TestMethod]
         public void GenerateHTMLTest()
         {
+           //TODO: This will test whether the generated html is valid or not. 
+            //Also, verify the output generated from Generate method of HTML Writer.
         }
     }
 

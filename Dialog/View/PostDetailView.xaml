@@ -18,8 +18,9 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">
             <ComboBox VerticalContentAlignment="Center" Height="30" SelectedItem="{Binding SelectedWriter,Mode=TwoWay}" Width="200" ItemsSource="{Binding Source={utilities:EnumBindingSourceExtension {x:Type factory:WriterType}}}"  Text="File Writer"></ComboBox>
-            <Button Margin="10,0,0,0" x:Name="btnGenerate" Command="{Binding GeneratePostDataCommand}" Content="Generate"></Button>
-            <Button Margin="10,0,0,0" x:Name="btnCopy" Command="{Binding CopyPostDataCommand}" Content="Copy"></Button>
+            <!--<Button Margin="10,0,0,0" x:Name="btnGenerate" Command="{Binding GeneratePostDataCommand}" Content="Generate"></Button>-->
+            <Button Margin="10,0,0,0" x:Name="btnCopy" ToolTip="Copy the content of Post Detail" Command="{Binding CopyPostDataCommand}" Content="Copy"></Button>
+            <Button Margin="10,0,0,0" x:Name="btnClear" ToolTip="Clear the copied content of Post Detail" Command="{Binding ClearPostDataCommand}" Content="Clear"></Button>
         </StackPanel>
 
         <ScrollViewer Grid.Row="2">

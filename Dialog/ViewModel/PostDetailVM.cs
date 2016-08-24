@@ -26,6 +26,7 @@ namespace GlobalLogic.Dialog.ViewModel
             set
             {
                 _selectedWriter = value;
+                this.PostDetail();
                 OnPropertyChanged();
             }
         }
@@ -62,16 +63,29 @@ namespace GlobalLogic.Dialog.ViewModel
                 
         #region "- ICommand -"
 
-        private DelegateParameterizedCommand<object> generatePostDataCommand;
-        public ICommand GeneratePostDataCommand
+        //private DelegateParameterizedCommand<object> generatePostDataCommand;
+        //public ICommand GeneratePostDataCommand
+        //{
+        //    get
+        //    {
+        //        if (this.generatePostDataCommand == null)
+        //        {
+        //            this.generatePostDataCommand = new DelegateParameterizedCommand<object>(this.PostDetail);
+        //        }
+        //        return this.generatePostDataCommand;
+        //    }
+        //}
+
+        private DelegateParameterizedCommand<object> clearPostDataCommand;
+        public ICommand ClearPostDataCommand
         {
             get
             {
-                if (this.generatePostDataCommand == null)
+                if (this.clearPostDataCommand == null)
                 {
-                    this.generatePostDataCommand = new DelegateParameterizedCommand<object>(this.PostDetail);
+                    this.clearPostDataCommand = new DelegateParameterizedCommand<object>(this.ClearPostDetail);
                 }
-                return this.generatePostDataCommand;
+                return this.clearPostDataCommand;
             }
         }
 
@@ -87,8 +101,6 @@ namespace GlobalLogic.Dialog.ViewModel
                 return this.copyPostDataCommand;
             }
         }
-
-        
 
         #endregion
 
@@ -126,6 +138,20 @@ namespace GlobalLogic.Dialog.ViewModel
             {
                 app.StatusBarContent = "Error in copying the post details. Please check error log and contact the support team. ";
                 logger.Error(String.Format("Error in copying the post details. Exception:{0}, StackTrace{1}", ex.Message, ex.StackTrace));
+            }
+        }
+
+        private void ClearPostDetail(object data = null)
+        {
+            try
+            {
+                Clipboard.Clear();
+                app.StatusBarContent = "Clipboard content is cleared successfully.";
+            }
+            catch (Exception ex)
+            {
+                app.StatusBarContent = "Error in clearing the post details. Please check error log and contact the support team. ";
+                logger.Error(String.Format("Error in clearing the post details. Exception:{0}, StackTrace{1}", ex.Message, ex.StackTrace));
             }
         }
 
